@@ -1,49 +1,3 @@
-// const result = document.getElementById("result");
-// const filter = document.getElementById("filter");
-// const listItem = [];
-// getData();
-
-// filter.addEventListener("input", (e) => {
-//   filterData(e.target.value);
-// });
-// async function getData() {
-//   const res = await fetch("https://randomuser.me/api/?results=50");
-
-//   const { results } = await res.json();
-
-//   //   console.log(results);
-
-//   //clear result ...
-
-//   results.innerHTML = " ";
-
-//   results.forEach((user) => {
-//     const li = document.createElement("li");
-
-//     listItem.push(li);
-
-//     li.innerHTML = `
-//     <img src ="${user.picture.large}" alt="${user.name.frist}">
-
-//     <div class="user-info">
-//     <h4> ${user.name.first} ${user.name.last}</h4>
-//     <p>${user.location.city}, ${user.location.country}</p>
-//     </div>
-//     `;
-
-//     result.appendChild(li);
-//   });
-// }
-
-// function filterData(searchData) {
-//   listItem.forEach((item) => {
-//     if (item.innerText.toLowerCase().includes(searchData.toLowerCase())) {
-//       item.classList.remove("hide");
-//     } else {
-//       item.classList.add("hide");
-//     }
-//   });
-// }
 /*
 Variable Declarations:
 
@@ -78,6 +32,49 @@ result.appendChild(li);: The newly created list item (li) is appended as a child
 Filtering Function (filterData function):
 
 function filterData(searchData) { ... }: This function is named filterData and takes a searchData parameter as input.
-
-
 */
+
+const result = document.getElementById("result");
+const filter = document.getElementById("filter");
+const listItem = [];
+
+getData();
+
+filter.addEventListener("input", (e) => {
+  getResult(e.target.value);
+});
+
+async function getData() {
+  const res = await fetch("https://randomuser.me/api/?results=50");
+
+  const { results } = await res.json();
+
+  //   console.log(results);
+
+  //clear result ...
+  result.innerHTML = " ";
+
+  results.forEach((user) => {
+    const li = document.createElement("li");
+    listItem.push(li);
+    li.innerHTML = `
+    <img src ="${user.picture.large}" alt="${user.name.frist}">
+    
+        <div class="user-info">
+        <h4> ${user.name.first} ${user.name.last}</h4>
+        <p>${user.location.city}, ${user.location.country}</p>
+        </div>
+    `;
+    result.appendChild(li);
+  });
+}
+
+function getResult(searchData) {
+  listItem.forEach((item) => {
+    if (item.innerText.toLowerCase().includes(searchData.toLowerCase())) {
+      item.classList.remove("hide");
+    } else {
+      item.classList.add("hide");
+    }
+  });
+}
