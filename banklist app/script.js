@@ -72,14 +72,88 @@ const displayMovement = function (movements) {
 
     const html = `<div class="movements__row">
     <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-    <div class="movements__value">${mov}</div>
+    <div class="movements__value">${mov} 💶 </div>
   </div>`;
 
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
 
-displayMovement(account1.movements);
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+  labelBalance.textContent = `${balance} 💶`;
+};
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// add in  out and interest ------------------------------
+
+const calcBalance = function (acc) {
+  const incomes = acc.movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, curr) => acc + curr, 0);
+  labelSumIn.textContent = `${incomes}💶`;
+
+  const outcomes = acc.movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, curr) => acc + curr, 0);
+  labelSumOut.textContent = `${Math.abs(outcomes)}💶`;
+
+  const interest = acc.movements
+    .filter((mov) => mov > 0)
+    .map((mov) => (mov * acc.interestRate) / 100)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  labelSumInterest.textContent = `${interest}💶`;
+};
+
+// create user name -----------------------------
+
+const createUserName = function (acc) {
+  acc.forEach((accs) => {
+    accs.username = accs.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
+
+createUserName(accounts);
+
+let currAccount;
+
+btnLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  currAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+
+  if (currAccount?.pin === Number(inputLoginPin.value)) {
+    // display ui and message-------------------------
+    labelWelcome.textContent = `Welcome back, 
+    ${currAccount.owner.split(" ")[0]}`;
+
+    containerApp.style.opacity = 100;
+    // clear input fields.............................
+    inputLoginUsername.value = inputLoginPin.value = " ";
+
+    inputLoginPin.blur();
+    // display movement --------------------------------
+
+    displayMovement(currAccount.movements);
+
+    // display balnce ------------------------
+
+    calcDisplayBalance(currAccount.movements);
+
+    // display summery-----------------
+    calcBalance(currAccount);
+  }
+});
+
+// console.log(accounts);
+
 /*
 const currencies = new Map([
   ["USD", "United States dollar"],
@@ -91,3 +165,18 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 */
+
+// max value*****************************
+
+// const max = function (mov) {
+//   const maxval = mov.reduce((acc, curr) => {
+//     if (acc > curr) return acc;
+//     else return curr;
+//   }, mov[0]);
+//   // console.log(maxval);
+// };
+
+// const movements2 = [-200, 450, -400, 3000, -650, -130, 70, 1300];
+// max(movements2);
+
+// console.log(max);
