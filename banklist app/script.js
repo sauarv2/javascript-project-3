@@ -190,6 +190,28 @@ btnTransfer.addEventListener("click", (e) => {
   }
 });
 
+// close the acccount********************************
+
+btnClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  // apply logic
+  if (
+    inputCloseUsername.value === currAccount.username &&
+    Number(inputClosePin.value) === currAccount.pin
+  ) {
+    // find the index of user want to delet account *************
+    const index = accounts.findIndex(
+      (acc) => acc.username === currAccount.username
+    );
+
+    // console.log(index);
+    // delete the user so i use splice method
+    accounts.splice(index, 1);
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = "";
+});
+
 // console.log(accounts);
 
 /*
