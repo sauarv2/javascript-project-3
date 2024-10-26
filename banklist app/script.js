@@ -211,7 +211,13 @@ btnClose.addEventListener("click", (e) => {
   }
   inputCloseUsername.value = inputClosePin.value = "";
 });
+// toatal accounts balnace----------------------
 
+const totalBalance = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((acc, curr) => acc + curr, 0);
+
+// console.log(totalBalance);
 // console.log(accounts);
 
 /*
