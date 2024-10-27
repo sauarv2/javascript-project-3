@@ -7,12 +7,20 @@ const humidity = document.getElementById("humidity");
 const wind_speed = document.getElementById("wind-speed");
 
 const location_not_found = document.querySelector(".location-not-found");
+const emptyLocation = document.querySelector(".empty-not-found");
 
 const weather_body = document.querySelector(".weather-body");
 
 // create a function************************
 async function checkWeather(city) {
+  if (city == "") {
+    emptyLocation.style.display = "flex";
+    weather_body.style.display = "none";
+    console.log("error");
+    return;
+  }
   // fetch api***************************
+  weather_body.style.display = "flex";
   const apiKey = "3860debf0040d3725756439e3cd60a84";
 
   const websiet = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
@@ -21,6 +29,14 @@ async function checkWeather(city) {
     response.json()
   );
 
+  if (weatherData.cod === `404`) {
+    location_not_found.style.display = "flex";
+    weather_body.style.display = "none";
+    console.log("error");
+    return;
+  }
+  emptyLocation.style.display = "none";
+  location_not_found.style.display = "none";
   console.log(weatherData);
 
   //   adding dynMIC Vlue***************
