@@ -37,6 +37,8 @@ async function checkWeather(city) {
   humidity.innerHTML = `${weatherData.main.humidity}%`;
 
   //    changing weather image according to decription
+  //   switch case*******************************
+  /*
 
   switch (weatherData.weather[0].main) {
     case "Clouds":
@@ -55,8 +57,34 @@ async function checkWeather(city) {
       weather_img.src = "/image/snow.png";
       break;
   }
-}
+*/
 
+  // using include method*******************************
+
+  const weather = weatherData.weather[0].main;
+
+  console.log(weather);
+  let word1 = "Clouds";
+  let word2 = "Clear";
+  let word3 = "Rain";
+  let word4 = "Mist";
+  let word5 = "Snow";
+  let word6 = "Haze";
+
+  if (weather.includes(word1)) {
+    weather_img.src = "/image/cloud.png";
+  } else if (weather.includes(word2)) {
+    weather_img.src = "/image/clear.png";
+  } else if (weather.includes(word3)) {
+    weather_img.src = "/image/rain.png";
+  } else if (weather.includes(word4)) {
+    weather_img.src = "/image/mist.png";
+  } else if (weather.includes(word5)) {
+    weather_img.src = "/image/snow.png";
+  } else if (weather.includes(word6)) {
+    weather_img.src = "/image/haze.png";
+  }
+}
 searchBtn.addEventListener("click", () => {
   checkWeather(inputBox.value);
 });
