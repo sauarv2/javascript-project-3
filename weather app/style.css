@@ -45,7 +45,7 @@ body {
   color: #000;
 }
 
-.search-box button {
+.search-box .button {
   width: 46px;
   height: 46px;
   background-color: #e6f5fb;
@@ -54,7 +54,7 @@ body {
   font-size: 20px;
 }
 
-.search-box button:hover {
+.search-box .button:hover {
   color: #fff;
   background-color: #ababab;
 }
@@ -64,7 +64,8 @@ body {
   align-items: center;
   flex-direction: column;
   margin-block: 20px;
-  display: none;
+  display: flex;
+  /* display: none; */
 }
 .weather-body img {
   width: 60%;
