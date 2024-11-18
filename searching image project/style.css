@@ -81,6 +81,18 @@ button {
   height: 100%;
 }
 
+#imageContainer .overley h3 {
+  display: none;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+#imageContainer:hover .overley h3 {
+  display: block;
+  margin-top: 7rem;
+}
+
 .card {
   flex: 0 0 calc(20% - 10px);
   margin-bottom: 20px;

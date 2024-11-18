@@ -9,7 +9,7 @@ const imageContainer = document.getElementById("imageContainer");
 // ivcUPE47C3RhWAVsvLNy6MwCdNH7N3oarYlisGWPRDE
 const fetchImage = async (query) => {
   imageContainer.innerHTML = "";
-  const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=25&client_id=${accesskey}`;
+  const url = `https://api.unsplash.com/search/photos?query=${query}&per_page=25&page=1&client_id=${accesskey}`;
 
   const response = await fetch(url);
 
@@ -25,7 +25,11 @@ const fetchImage = async (query) => {
     // creating overley
     const overleyElement = document.createElement("div");
     overleyElement.classList.add("overley");
+    const desciption = datas.alt_description;
+    const overleyText = document.createElement("h3");
+    overleyText.innerHTML = `${desciption}`;
 
+    overleyElement.appendChild(overleyText);
     imageElement.appendChild(overleyElement);
     imageContainer.appendChild(imageElement);
   });
