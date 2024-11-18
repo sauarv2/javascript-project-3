@@ -51,12 +51,34 @@ button {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
-
-main {
+#imageContainer {
+  /* margin-block: 20px; */
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
+  gap: 20px;
+}
+
+#imageContainer img {
+  width: 250px;
+  height: 240px;
+}
+#imageContainer .imgcls {
+  position: relative;
+}
+#imageContainer .overley {
+  position: absolute;
+  height: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color: #30303053;
+  transition: height 0.3s ease-in;
+}
+
+#imageContainer:hover .overley {
+  height: 100%;
 }
 
 .card {
