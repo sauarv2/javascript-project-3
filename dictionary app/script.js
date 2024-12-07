@@ -2,10 +2,11 @@ const form = document.querySelector("form");
 const result = document.querySelector(".resultDiv");
 const submit = document.querySelector(".submit");
 const input = document.querySelector("input");
+const textInfo = document.querySelector(".info-text");
 
 submit.addEventListener("click", (e) => {
   e.preventDefault();
-
+  textInfo.textContent = "";
   wordInfo(input.value);
 });
 
