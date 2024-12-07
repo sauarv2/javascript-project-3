@@ -12,8 +12,22 @@
                 <mxCell id="2" value="&lt;h5&gt;&lt;font color=&quot;#ff3399&quot;&gt;set the currency and code BY ARREY&lt;/font&gt;&lt;/h5&gt;" style="whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillColor=none;strokeColor=default;dashed=1;rounded=1;glass=1;" vertex="1" parent="1">
                     <mxGeometry x="37" y="-619" width="132" height="79" as="geometry"/>
                 </mxCell>
+                <mxCell id="9" style="edgeStyle=none;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Courier New;fontSize=16;fontColor=#FF3399;" edge="1" parent="1" source="5" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="5" value="CREATE A OPTION ELMENT THAN APPEND CHIDE THE OPTION" style="whiteSpace=wrap;html=1;rounded=1;glass=1;dashed=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;strokeColor=default;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#B85CFF;fillColor=none;" vertex="1" parent="1">
                     <mxGeometry x="274" y="-636" width="140" height="144" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;html=1;fontFamily=Courier New;fontSize=16;fontColor=#FF3399;" edge="1" parent="1" source="8" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="576" y="-411.95706939697266" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="&lt;font face=&quot;Courier New&quot;&gt;create a function that workes on api&lt;/font&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;rounded=1;glass=1;dashed=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;strokeColor=default;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fontColor=#FF3399;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="511" y="-629" width="130" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;font color=&quot;#cccc00&quot;&gt;fetch data from api&lt;/font&gt;" style="shape=display;whiteSpace=wrap;html=1;rounded=1;glass=1;dashed=1;hachureGap=4;strokeColor=default;fontFamily=Courier New;fontSize=20;fontColor=#FF3399;fillColor=none;sketch=1;curveFitting=1;jiggle=2;size=0;" vertex="1" parent="1">
+                    <mxGeometry x="522" y="-434" width="152" height="113" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
