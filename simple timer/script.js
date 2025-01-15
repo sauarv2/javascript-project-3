@@ -6,12 +6,18 @@ const root = document.querySelector(":root");
 
 // initial setup
 
-const totalSec = 100;
-const playing = false;
+const totalSec = 10;
+let playing = false;
 
 let currSec = totalSec;
 
 timerBtn.innerText = fomat(totalSec);
+const timer = setInterval(timeRunner, 1000);
+// play btn click function*********
+
+playBtn.addEventListener("click", () => {
+  playing = !playing;
+});
 
 // format sec function
 function fomat(secounds) {
@@ -19,9 +25,19 @@ function fomat(secounds) {
 
   const newSec = secounds % 60;
 
-  console.log(newSec);
-
   return `${minutes.toString().padStart(2, "0")}:${newSec
     .toString()
     .padStart(2, "0")}`;
+}
+
+// time runner function which one run the time and animate the circle
+
+function timeRunner() {
+  if (playing) {
+    currSec -= 1;
+  }
+  if (currSec <= 0) {
+    clearInterval(timer);
+  }
+  timerBtn.innerText = fomat(currSec);
 }
