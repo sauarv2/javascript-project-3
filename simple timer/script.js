@@ -6,7 +6,7 @@ const root = document.querySelector(":root");
 
 // initial setup
 
-const totalSec = 10;
+const totalSec = 70;
 let playing = false;
 
 let currSec = totalSec;
@@ -14,9 +14,19 @@ let currSec = totalSec;
 timerBtn.innerText = fomat(totalSec);
 const timer = setInterval(timeRunner, 1000);
 // play btn click function*********
-
+resetBtn.addEventListener("click", () => {
+  playing = false;
+  currSec = totalSec;
+  timerBtn.innerText = fomat(currSec);
+});
 playBtn.addEventListener("click", () => {
   playing = !playing;
+  // if (playing) {
+  //   timeRunner();
+  // } else {
+  //   stopTimer();
+  // }
+  console.log(playing);
 });
 
 // format sec function
@@ -29,7 +39,10 @@ function fomat(secounds) {
     .toString()
     .padStart(2, "0")}`;
 }
-
+// pause the timser function***
+function stopTimer() {
+  clearInterval(timer);
+}
 // time runner function which one run the time and animate the circle
 
 function timeRunner() {
@@ -40,4 +53,9 @@ function timeRunner() {
     clearInterval(timer);
   }
   timerBtn.innerText = fomat(currSec);
+  root.style.setProperty("--degrees", calcDeg());
+}
+
+function calcDeg() {
+  return `${360 - (currSec / totalSec) * 360}deg`;
 }
