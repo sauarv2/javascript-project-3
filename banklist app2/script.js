@@ -229,4 +229,16 @@ btnClose.addEventListener("click", (e) => {
   }
 });
 
-console.log(accounts);
+// asking for lone amoment********************************
+
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  if (amount >= 0 && finduser.movements.some((mov) => mov >= amount * 0.1)) {
+    finduser.movements.push(amount);
+    UIupdate(finduser);
+  }
+
+  inputLoanAmount.value = "";
+});
