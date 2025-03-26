@@ -19,15 +19,12 @@ button.addEventListener("click", (e) => {
 
 const clackRandom = function (minNum, Maxnum) {
   const rendom =
-    Math.trunc(Math.random() * (Maxnum - minNum) + 1) + Number(minNum);
+    Math.floor(Math.random() * (Maxnum - minNum) + 1) + Number(minNum);
   showNum.innerText = rendom;
 };
 
 // relode button**************
 Relode.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   num1.value = "";
-  //   num2.value = "";
   showNum.textContent = "";
   window.Location.reload();
 });
