@@ -83,7 +83,7 @@ const displayMovement = function (acc) {
       i + 1
     } ${type}</div>
           <div class="movements__date">3 days ago</div>
-          <div class="movements__value">${mov}💲</div>
+          <div class="movements__value">${mov.toFixed(2)}💲</div>
         </div>`;
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
@@ -108,7 +108,7 @@ createUsername(accounts);
 let balance;
 const calcPrintBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}💲`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}💲`;
 };
 
 // display balance*********************
@@ -126,13 +126,14 @@ const calckDisplay = function (acc) {
   const income = acc.movements
     .filter((mov) => mov >= 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${income}$`;
+  labelSumIn.textContent = `${income.toFixed(2)}$`;
 
   const expense = acc.movements
     .filter((mov) => mov <= 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(expense)}$`;
+  labelSumOut.textContent = `${Math.abs(expense).toFixed(2)}$`;
 
+  // interest amount ******************************
   const IntAnout = 1.2;
 
   const CalcInt = acc.movements
@@ -140,7 +141,7 @@ const calckDisplay = function (acc) {
     .map((mov) => (mov * IntAnout) / 100)
     .filter((mov) => mov >= 1)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumInterest.textContent = `${CalcInt}$`;
+  labelSumInterest.textContent = `${CalcInt.toFixed(2)}$`;
 };
 
 const UIupdate = function (acc) {
@@ -234,7 +235,7 @@ btnClose.addEventListener("click", (e) => {
 btnLoan.addEventListener("click", function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
   if (amount >= 0 && finduser.movements.some((mov) => mov >= amount * 0.1)) {
     finduser.movements.push(amount);
     UIupdate(finduser);

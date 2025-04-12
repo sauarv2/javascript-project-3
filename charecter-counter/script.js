@@ -48,17 +48,20 @@ area.addEventListener("keyup", () => {
 });
 
 // clear the input filed*************************
-clear.addEventListener("click", () => {
+clear.addEventListener("click", (e) => {
+  e.preventDefault();
   area.value = " ";
 });
 // copy the text**************************************
-copybtn.addEventListener("click", () => {
+copybtn.addEventListener("click", (e) => {
+  e.preventDefault();
   area.select();
   // document.execCommand("copy");
   navigator.clipboard.writeText(area.value);
 });
-
-sBtn.addEventListener("click", () => {
+// selct the text btn******************************
+sBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   area.select();
 });
 
