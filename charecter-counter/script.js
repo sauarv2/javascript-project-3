@@ -10,9 +10,18 @@ const clear = document.querySelector(".clBtn");
 const copybtn = document.querySelector(".copyBtn");
 const sBtn = document.querySelector(".sectBtn");
 const remaing = document.querySelector(".totalRe");
-
+const arr = [];
+let fritArr;
+let artoStr;
 area.addEventListener("keyup", () => {
   let char = area.value;
+
+  // Cpitalize the frist letter
+  arr.push(area.value);
+  arr.map((str) => {
+    fritArr = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  });
+  area.value = fritArr;
   // no. of charecter*****************
   let charLen = char.length;
   num.innerText = `${charLen}`;
@@ -26,7 +35,7 @@ area.addEventListener("keyup", () => {
     }
   }
   space.innerText = `${count}`;
-  words.innerText = `${count}`;
+  words.innerText = `${count + 1}`;
 
   // no. of line ****************
   let linnn = char.split(/\r\n|\r|\n/).length;
