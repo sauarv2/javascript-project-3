@@ -19,10 +19,10 @@ body {
 }
 textarea {
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
   padding: 10px;
   font-size: 16px;
-  resize: vertical;
+  resize: none;
 }
 .stats {
   margin-top: 15px;
@@ -44,5 +44,5 @@ textarea {
   font-size: 14px;
 }
 .buttons button:hover {
-  background: #0056b3;
+  background: #9315a4;
 }
