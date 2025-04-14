@@ -35,8 +35,14 @@ area.addEventListener("keyup", () => {
     }
   }
   space.innerText = `${count}`;
-  words.innerText = `${count + 1}`;
+  // find words in text box*************************
+  let wordss = char.match(/\b\w+\b/gm);
+  console.log(wordss);
+  words.innerText = `${wordss.length}`;
 
+  // find restriction word**********************
+
+  // console.log(o);
   // no. of line ****************
   let linnn = char.split(/\r\n|\r|\n/).length;
   linee.innerText = `${linnn}`;
