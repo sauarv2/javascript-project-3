@@ -14,6 +14,7 @@ const arr = [];
 let fritArr;
 let artoStr;
 let conve;
+const maxChars = 500;
 area.addEventListener("keyup", () => {
   let char = area.value;
 
@@ -29,6 +30,7 @@ area.addEventListener("keyup", () => {
   let namee = char;
   let count = 0;
   // no. of space***************
+  //  spaceCount.textContent = (text.match(/ /g) || []).length;
   for (let i = 0; i <= namee.length; i++) {
     let space = " ";
     if (space === namee[i]) {
@@ -52,7 +54,7 @@ area.addEventListener("keyup", () => {
   linee.innerText = `${linnn}`;
 
   // charecter limit ******************
-  let charLimit = Number(500 - charLen);
+  let charLimit = Number(maxChars - charLen);
   if (charLimit < 0) {
     charLimit = 0;
   }
@@ -77,6 +79,11 @@ area.addEventListener("keyup", () => {
 clear.addEventListener("click", (e) => {
   e.preventDefault();
   area.value = " ";
+  num.textContent = "0";
+  space.textContent = "0";
+  words.textContent = "0";
+  linee.textContent = "0";
+  remaing.textContent = maxChars;
 });
 // copy the text**************************************
 copybtn.addEventListener("click", (e) => {

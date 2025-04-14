@@ -4,32 +4,25 @@
   box-sizing: border-box;
 }
 
-/* body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
 body {
   font-family: Arial, sans-serif;
   padding: 30px;
-  background: #f9f9f9;
+  background: #ec91fc;
 }
 .container {
   max-width: 600px;
   margin: auto;
-  background: white;
+  background: rgb(40, 145, 237);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 textarea {
   width: 100%;
-  /* height: 200px; */
+  height: 200px;
   padding: 10px;
   font-size: 16px;
-  resize: none;
+  resize: vertical;
 }
 .stats {
   margin-top: 15px;
@@ -44,7 +37,7 @@ textarea {
   margin-right: 10px;
   padding: 8px 16px;
   border: none;
-  background: #007bff;
+  background: #6e097c;
   color: white;
   cursor: pointer;
   border-radius: 5px;
