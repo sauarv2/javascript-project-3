@@ -13,6 +13,7 @@ const remaing = document.querySelector(".totalRe");
 const arr = [];
 let fritArr;
 let artoStr;
+let conve;
 area.addEventListener("keyup", () => {
   let char = area.value;
 
@@ -37,10 +38,17 @@ area.addEventListener("keyup", () => {
   space.innerText = `${count}`;
   // find words in text box*************************
   let wordss = char.match(/\b\w+\b/gm);
-  console.log(wordss);
+  // console.log(wordss);
   words.innerText = `${wordss.length}`;
 
   // find restriction word**********************
+  let resTicwords = char.match(
+    /\bFuck\b|\bsex\b|\bfuck\b|\bSex\b|\bporn\b|\bPorn\b/gm
+  );
+  resTicwords.map((word, i) => {
+    conve = word.toUpperCase();
+  });
+  area.value += conve;
 
   // console.log(o);
   // no. of line ****************
