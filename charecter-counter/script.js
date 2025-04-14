@@ -18,11 +18,11 @@ area.addEventListener("keyup", () => {
   let char = area.value;
 
   // Cpitalize the frist letter
-  arr.push(area.value);
-  arr.map((str) => {
-    fritArr = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  });
-  area.value = fritArr;
+  // arr.push(area.value);
+  // arr.map((str) => {
+  //   fritArr = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  // });
+  // area.value = fritArr;
   // no. of charecter*****************
   let charLen = char.length;
   num.innerText = `${charLen}`;
@@ -42,13 +42,9 @@ area.addEventListener("keyup", () => {
   words.innerText = `${wordss.length}`;
 
   // find restriction word**********************
-  let resTicwords = char.match(
-    /\bFuck\b|\bsex\b|\bfuck\b|\bSex\b|\bporn\b|\bPorn\b/gm
-  );
-  resTicwords.map((word, i) => {
-    conve = word.toUpperCase();
-  });
-  area.value += conve;
+  let resTicwords = /\bFuck\b|\bsex\b|\bfuck\b|\bSex\b|\bporn\b|\bPorn\b/gm;
+
+  area.value = char.replace(resTicwords, "###");
 
   // console.log(o);
   // no. of line ****************
@@ -68,6 +64,13 @@ area.addEventListener("keyup", () => {
   } else {
     num.style.color = "white";
   }
+  arr.push(area.value);
+  // Cpitalize the frist letter
+
+  arr.map((str) => {
+    fritArr = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  });
+  area.value = fritArr;
 });
 
 // clear the input filed*************************
