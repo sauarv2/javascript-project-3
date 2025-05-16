@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body" id="item1">
+              <img src="pic-1.jpg" class="card-img-top" alt="..." />
+              <div class="card-title">shop 2</div>
+              <div>
+                <label>size:</label>
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <button onclick="Cart(item1)" class="btn btn-primary">
+                add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body" id="item2">
+              <img src="pic-2.jpg" class="card-img-top" alt="..." />
+              <div class="card-title">shop 2</div>
+              <div>
+                <label>size:</label>
+                <select>
+                  <option>1</option>
+                  <option>1</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <button onclick="Cart(item2)" class="btn btn-primary">
+                add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-div" id="right-div">
+      <div class="sect">
+        <div class="title">Cart</div>
+        <div id="cartItem"></div>
+        <hr />
+      </div>
+    </div>
+    <div class="oppp"></div>
+  </body>
+</html>

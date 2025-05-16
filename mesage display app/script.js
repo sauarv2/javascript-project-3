@@ -14,6 +14,7 @@ button.addEventListener("click", function (e) {
   html = `<div class="movements__row">
   <div id="movements__value" class="movements__value">${rever[0]}</div>
   </div>`;
+
   console.log(rever);
 
   showtext.insertAdjacentHTML("beforeend", html);
