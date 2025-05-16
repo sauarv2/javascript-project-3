@@ -6,6 +6,16 @@ function Cart(item) {
   const cartID = document.getElementById("cartItem");
   // **********************
   addItem += 1;
+
+  const html = `<div class= "cartIMG"   >
+              <img src="${item.children[0].currentSrc}"    />
+              <div class="card-title">${item.children[1].innerText}</div>
+              <div>
+                <label>size:${item.children[2].children[1].value}</label>`;
+
+  cartID.insertAdjacentHTML("afterbegin", html);
+
+  /*
   const cartdiv = document.createElement("div");
   cartdiv.classList.add("cartIMG");
   cartdiv.setAttribute("id", addItem);
@@ -45,6 +55,7 @@ function Cart(item) {
   cartdiv.append(cartTitle);
   cartdiv.append(cartLabel);
   cartdiv.append(deletetItem);
+  */
 }
 
 // *** Delete the item function***********************
