@@ -11,7 +11,8 @@ function Cart(item) {
               <img src="${item.children[0].currentSrc}"    />
               <div class="card-title">${item.children[1].innerText}</div>
               <div>
-                <label>size:${item.children[2].children[1].value}</label>`;
+                <label>size:${item.children[2].children[1].value}</label>
+                <button></button>`;
 
   cartID.insertAdjacentHTML("afterbegin", html);
 

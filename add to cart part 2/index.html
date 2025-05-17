@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThapaCart - Pure CSS Version</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cart-card bg-blue-50">
+        <h2>Cart (2 item)</h2>
+        <div class="product">
+          <div class="product-image">
+            <img src="images/p1.jpg" alt="cart img" />
+          </div>
+          <div
+            class="product-details flex flex-wrap items-center justify-between w-4/5"
+          >
+            <div class="product-info">
+              <h1>Blue Zara Shirt</h1>
+              <p>SHIRT - BLUE</p>
+              <p>COLOR: BLUE</p>
+              <p>SIZE: M</p>
+            </div>
+            <div
+              class="flex text-center flex-col content-center justify-center"
+            >
+              <div class="product-quantity">
+                <button
+                  class="minus block bg-white rounded-full text-purple-500"
+                >
+                  -
+                </button>
+                <input type="text" value="0" class="textbox" />
+                <button
+                  class="plus block bg-white rounded-full text-purple-500"
+                >
+                  +
+                </button>
+              </div>
+              <div class="product-footer">
+                <div
+                  class="remove-move flex content-center justify-around w-full"
+                >
+                  <button
+                    class="block bg-white rounded-full text-purple-500 p-1"
+                  >
+                    🗑
+                  </button>
+                  <button class="bg-white rounded-full text-purple-500 p-2">
+                    ❤️
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="price block font-semibold text-xl h-px">
+            <h3 class="px-3">₹<span class="itemval">999</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="cart-card bg-blue-50 my-8">
+        <div class="product">
+          <div class="product-image">
+            <img src="images/p2.jpg" alt="cart img" />
+          </div>
+          <div
+            class="product-details flex flex-wrap items-center justify-between w-4/5"
+          >
+            <div class="product-info">
+              <h1>white Zara Shirt</h1>
+              <p>SHIRT - white</p>
+              <p>COLOR: white</p>
+              <p>SIZE: M</p>
+            </div>
+            <div
+              class="flex text-center flex-col content-center justify-center"
+            >
+              <div class="product-quantity">
+                <button
+                  class="minus block bg-white rounded-full text-purple-500"
+                >
+                  -
+                </button>
+                <input type="text" value="0" class="textbox" />
+                <button
+                  class="plus block bg-white rounded-full text-purple-500"
+                >
+                  +
+                </button>
+              </div>
+              <div class="product-footer">
+                <div
+                  class="remove-move flex content-center justify-around w-full"
+                >
+                  <button
+                    class="block bg-white rounded-full text-purple-500 p-1"
+                  >
+                    🗑
+                  </button>
+                  <button class="bg-white rounded-full text-purple-500 p-2">
+                    ❤️
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="price block font-semibold text-xl h-px">
+            <h3 class="px-3">₹<span class="itemval">999</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" async defer></script>
+  </body>
+</html>
