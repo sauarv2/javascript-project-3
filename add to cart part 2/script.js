@@ -2,22 +2,28 @@ const minusel = document.querySelectorAll(".minus");
 const plusEl = document.querySelectorAll(".plus");
 
 const val = document.querySelectorAll(".textbox");
-// const val2 = document.getElementById("textbox2");
+const itemvalEl = document.querySelectorAll(".itemval");
+console.log(itemvalEl);
 
+// **********************************************************
 plusEl.forEach((btn, idx) => {
   btn.addEventListener("click", function () {
-    let chgval = val[idx].value;
+    let chgval = parseInt(val[idx].value);
+
     chgval++;
     if (chgval > 7) chgval = 7;
     val[idx].value = chgval;
+
+    itemvalEl[idx].textContent = (999 * chgval).toString();
   });
 });
 minusel.forEach((btn, idx) => {
   btn.addEventListener("click", function (e) {
-    let chgval = val[idx].value;
+    let chgval = parseInt(val[idx].value);
     if (chgval > 0) chgval--;
 
     val[idx].value = chgval;
+    itemvalEl[idx].textContent = (999 * chgval).toString();
   });
 });
 
