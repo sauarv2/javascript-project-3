@@ -13,7 +13,9 @@ plusEl.forEach((btn, idx) => {
     chgval++;
     if (chgval > 7) chgval = 7;
     val[idx].value = chgval;
-
+    let valuu = itemvalEl[idx].textContent;
+    let copyvall = valuu;
+    console.log(copyvall);
     itemvalEl[idx].textContent = (999 * chgval).toString();
   });
 });
