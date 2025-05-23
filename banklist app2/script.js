@@ -101,12 +101,22 @@ const displayMovement = function (acc) {
   containerMovements.innerHTML = ``;
   //   text content is empty 👆
   acc.movements.forEach((mov, i) => {
+    // current time
+    let currtime = new Date(acc.movementsDates[i]);
+    let date = (currtime.getDate() < 10 ? "0" : "") + currtime.getDate();
+    let month = (currtime.getMonth() < 10 ? "0" : "") + currtime.getMonth();
+    let year = currtime.getFullYear();
+    let hour = `${currtime.getHours()}`.padStart(2, "0");
+    let minutes = `${currtime.getMinutes()}`.padStart(2, "0");
+
+    // labelDate.innerText = `, ${hour} ${minutes} `;
+
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = `<div class="movements__row">
           <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-          <div class="movements__date">3 days ago</div>
+          <div class="movements__date">${+date}/${+month + 1}/${+year}</div>
           <div class="movements__value">${mov.toFixed(2)}💲</div>
         </div>`;
     containerMovements.insertAdjacentHTML("afterbegin", html);
@@ -157,6 +167,22 @@ const calckDisplay = function (acc) {
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(expense).toFixed(2)}$`;
 
+  // update date.........................
+
+  setInterval(() => {
+    // current time
+    let currtime = new Date();
+    let date = (currtime.getDate() < 10 ? "0" : "") + currtime.getDate();
+    let month = (currtime.getMonth() < 10 ? "0" : "") + currtime.getMonth();
+    let year = currtime.getFullYear();
+    let hour = `${currtime.getHours()}`.padStart(2, "0");
+    let minutes = `${currtime.getMinutes()}`.padStart(2, "0");
+
+    labelDate.innerText = `${+date}/${
+      +month + 1
+    }/${+year}, ${hour} ${minutes} `;
+  }, 1000);
+
   // interest amount ******************************
   const IntAnout = 1.2;
 
@@ -181,11 +207,11 @@ const UIupdate = function (acc) {
 
 // fake login
 
-let currentUser;
+// let currentUser;
 
-currentUser = account1;
-UIupdate(currentUser);
-containerApp.style.opacity = 1;
+// currentUser = account1;
+// UIupdate(currentUser);
+// containerApp.style.opacity = 1;
 
 // btn submit button **********************
 
@@ -226,7 +252,9 @@ btnTransfer.addEventListener("click", function (e) {
   ) {
     // doing transfer*****************
     finduser.movements.push(-amount);
+    finduser.movementsDates.push(new Date().toISOString());
     reciverAccount.movements.push(amount);
+    reciverAccount.movementsDates.push(new Date().toISOString());
     UIupdate(finduser);
   } else {
     console.error("error");
@@ -270,8 +298,9 @@ btnLoan.addEventListener("click", function (e) {
   const amount = Math.floor(inputLoanAmount.value);
   if (amount >= 0 && finduser.movements.some((mov) => mov >= amount * 0.1)) {
     finduser.movements.push(amount);
+    finduser.movementsDates.push(new Date().toISOString());
     UIupdate(finduser);
   }
 
-  inputLoanAmount.value = "";
+  // inputLoanAmount.value = "";
 });
