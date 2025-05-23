@@ -155,6 +155,14 @@ const UIupdate = function (acc) {
   calckDisplay(acc);
 };
 
+// fake login
+
+let currentUser;
+
+currentUser = account1;
+UIupdate(currentUser);
+containerApp.style.opacity = 1;
+
 // btn submit button **********************
 
 let finduser;
