@@ -10,5 +10,6 @@ setInterval(() => {
   date = (currtime.getDate() < 10 ? "0" : "") + currtime.getDate();
   month = (currtime.getMonth() < 10 ? "0" : "") + currtime.getMonth();
   year = currtime.getFullYear();
-  labelDate.innerText = `${date}/${month}/${year} `;
+
+  labelDate.innerText = `${+date}/${+month + 1}/${+year} `;
 }, 1000);
