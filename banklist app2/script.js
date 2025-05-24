@@ -304,3 +304,16 @@ btnLoan.addEventListener("click", function (e) {
 
   // inputLoanAmount.value = "";
 });
+
+// sorted ***********************
+
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  // BUG in video:
+  // displayMovements(currentAccount.movements, !sorted);
+
+  // FIX:
+  displayMovement(currentAccount, !sorted);
+  sorted = !sorted;
+});
