@@ -11,7 +11,7 @@ const account1 = {
   interestRate: 1.2, // %
   pin: 1111,
   movementsDates: [
-    "2019-11-18T21:31:17.178Z",
+    "2025-05-21T21:31:17.178Z",
     "2019-12-23T07:42:02.383Z",
     "2020-01-28T09:15:04.904Z",
     "2020-04-01T10:17:24.185Z",
@@ -97,12 +97,30 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// no of days function
+const formatMovementDate = function (date) {
+  const calcDaysPassed = (date1, date2) =>
+    Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+  const daypassed = calcDaysPassed(new Date(), date);
+
+  if (daypassed === 0) return "Today";
+  if (daypassed === 1) return "Yesterday";
+  if (daypassed <= 7) return `${daypassed} days ago`;
+  else {
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0);
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+};
+
 const displayMovement = function (acc) {
   containerMovements.innerHTML = ``;
   //   text content is empty 👆
   acc.movements.forEach((mov, i) => {
     // current time
     let currtime = new Date(acc.movementsDates[i]);
+    const displayDate = formatMovementDate(currtime);
     let date = (currtime.getDate() < 10 ? "0" : "") + currtime.getDate();
     let month = (currtime.getMonth() < 10 ? "0" : "") + currtime.getMonth();
     let year = currtime.getFullYear();
@@ -116,7 +134,7 @@ const displayMovement = function (acc) {
           <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-          <div class="movements__date">${+date}/${+month + 1}/${+year}</div>
+          <div class="movements__date">${displayDate}</div>
           <div class="movements__value">${mov.toFixed(2)}💲</div>
         </div>`;
     containerMovements.insertAdjacentHTML("afterbegin", html);
